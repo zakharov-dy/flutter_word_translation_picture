@@ -47,6 +47,7 @@ dev_dependencies:
     sdk: flutter
   build_runner: ^1.0.0
   objectbox_generator: any
+  change_app_package_name: ^1.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

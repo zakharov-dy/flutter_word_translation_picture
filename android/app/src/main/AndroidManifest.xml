@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.word_translation_picture">
+    package="com.zakharov_dy.word_translation_picture">
    <application
         android:label="word_translation_picture"
         android:icon="@mipmap/ic_launcher">
