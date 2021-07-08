@@ -10,7 +10,6 @@ import 'package:word_translation_picture/blocs/words/words_events.dart';
 import 'package:word_translation_picture/dataProvider/Repository.dart';
 import 'package:word_translation_picture/models/DB/DBWord.dart';
 import 'package:word_translation_picture/presentation/CardsPage.dart';
-import 'package:word_translation_picture/presentation/CardsPage.dart';
 import 'package:word_translation_picture/presentation/HomePage/HomePage.dart';
 import 'package:word_translation_picture/presentation/NewWordPage.dart';
 import 'objectbox.g.dart';
@@ -33,7 +32,9 @@ class _MyApp extends State<MyApp> {
     super.initState();
     //TODO?
     getApplicationDocumentsDirectory().then((Directory dir) {
-      _store = Store(getObjectBoxModel(), directory: dir.path + '/objectbox');
+      setState(() {
+        _store = Store(getObjectBoxModel(), directory: dir.path + '/objectbox');
+      });
     });
   }
 

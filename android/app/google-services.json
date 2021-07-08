@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "508533409283",
+    "project_id": "word-translation-picture",
+    "storage_bucket": "word-translation-picture.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:508533409283:android:a6c055d557474f95dff036",
+        "android_client_info": {
+          "package_name": "com.zakharov_dy.word_translation_picture"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "508533409283-m6uhr1h9slg77vd4os2f64muf1g909ui.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBy6iVP_BVAzt5_ySQTN9dmrLi7qkVdNh0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "508533409283-m6uhr1h9slg77vd4os2f64muf1g909ui.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,7 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.zakharov_dy.word_translation_picture">
+    <uses-permission android:name="android.permission.INTERNET"/>
    <application
         android:label="word_translation_picture"
+        android:usesCleartextTraffic="true"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

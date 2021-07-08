@@ -48,3 +48,4 @@ app.*.map.json
 # Secret
 secret.env
 /dataset/node_modules/
+/android/app/upload-keystore.jks
