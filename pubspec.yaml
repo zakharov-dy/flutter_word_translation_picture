@@ -40,7 +40,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   path_provider: ^2.0.1
   transparent_image: ^2.0.0
-  cached_network_image: ^3.0.0
+  cached_network_image: ^3.1.0-alpha.1
   shared_preferences: ^2.0.6
 
 dev_dependencies:
@@ -48,7 +48,12 @@ dev_dependencies:
     sdk: flutter
   build_runner: ^1.0.0
   objectbox_generator: any
-  change_app_package_name: ^1.0.0
+  flutter_launcher_icons: "^0.9.0"
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "images/icon.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

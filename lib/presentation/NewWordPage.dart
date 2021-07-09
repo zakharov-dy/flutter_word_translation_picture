@@ -35,7 +35,11 @@ class NewWordPage extends StatelessWidget {
               ) as String?;
 
               Navigator.pop(
-                  context, Word(ru: state.ruInput.value, en: state.engInput.value, image: image));
+                  context,
+                  Word(
+                      ru: state.ruInput.value,
+                      en: state.engInput.value,
+                      image: image));
 
               return;
             }
@@ -66,10 +70,12 @@ class _EngInput extends StatelessWidget {
       builder: (context, state) {
         return TextField(
           key: const Key('wordForm_engInput_textField'),
-          onChanged: (eng) => context.read<WordBloc>().add(EngInputChangedEvent(eng)),
+          onChanged: (eng) =>
+              context.read<WordBloc>().add(EngInputChangedEvent(eng)),
           decoration: InputDecoration(
             labelText: 'eng word',
-            errorText: state.engInput.invalid ? state.engInput.humanizedError : null,
+            errorText:
+                state.engInput.invalid ? state.engInput.humanizedError : null,
           ),
         );
       },
@@ -101,18 +107,21 @@ class _RuInputState extends State<_RuInput> {
   Widget build(BuildContext context) {
     return BlocConsumer<WordBloc, WordState>(
       buildWhen: (previous, current) =>
-          previous.ruInput != current.ruInput || previous.engInput != current.engInput,
+          previous.ruInput != current.ruInput ||
+          previous.engInput != current.engInput,
       listener: (context, state) {
         myController.value = myController.value.copyWith(
           text: state.ruInput.value,
-          selection: TextSelection.collapsed(offset: state.ruInput.value.length),
+          selection:
+              TextSelection.collapsed(offset: state.ruInput.value.length),
         );
       },
       builder: (context, state) {
         return TextField(
           controller: myController,
           key: const Key('wordForm_ruInput_textField'),
-          onChanged: (ru) => context.read<WordBloc>().add(RuInputChangedEvent(ru)),
+          onChanged: (ru) =>
+              context.read<WordBloc>().add(RuInputChangedEvent(ru)),
           decoration: InputDecoration(
             suffixIcon: state.ruInput.isLoaded
                 ? IconButton(
@@ -122,8 +131,9 @@ class _RuInputState extends State<_RuInput> {
                         : null,
                   )
                 : iconIndicator,
-            labelText: 'run word',
-            errorText: state.ruInput.invalid ? state.ruInput.humanizedError : null,
+            labelText: 'ru word',
+            errorText:
+                state.ruInput.invalid ? state.ruInput.humanizedError : null,
           ),
         );
       },
@@ -135,15 +145,17 @@ class _WordButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) => BlocBuilder<WordBloc, WordState>(
       buildWhen: (previous, current) =>
-          previous.status != current.status || previous.ruInput != current.ruInput,
-      builder: (context, state) =>
-          state.status.isSubmissionFailure || state.status.isSubmissionInProgress
-              ? const CircularProgressIndicator()
-              : ElevatedButton(
-                  key: const Key('wordForm_save_raisedButton'),
-                  child: const Text('Save'),
-                  onPressed: state.status.isValid && state.ruInput.isLoaded
-                      ? () => context.read<WordBloc>().add(const WordSubmittedEvent())
-                      : null,
-                ));
+          previous.status != current.status ||
+          previous.ruInput != current.ruInput,
+      builder: (context, state) => state.status.isSubmissionFailure ||
+              state.status.isSubmissionInProgress
+          ? const CircularProgressIndicator()
+          : ElevatedButton(
+              key: const Key('wordForm_save_raisedButton'),
+              child: const Text('Save'),
+              onPressed: state.status.isValid && state.ruInput.isLoaded
+                  ? () =>
+                      context.read<WordBloc>().add(const WordSubmittedEvent())
+                  : null,
+            ));
 }
