@@ -14,7 +14,7 @@ class GridWordsList extends StatelessWidget {
     this.onLongPressEnd,
   }) : super(key: key);
 
-  List<Word> words;
+  final List<Word> words;
   final OnLongWordPressCallback? onLongWordPress;
   final VoidCallback? onLongPressEnd;
 
@@ -28,7 +28,7 @@ class GridWordsList extends StatelessWidget {
       padding: const EdgeInsets.all(8),
       childAspectRatio: 1,
       children: words.map<Widget>((word) {
-        return _GridDemoPhotoItem(
+        return _GridPhotoItem(
           word: word,
           key: Key('${word.id}'),
           onLongWordPress: onLongWordPress,
@@ -39,12 +39,12 @@ class GridWordsList extends StatelessWidget {
   }
 }
 
-class _GridDemoPhotoItem extends StatelessWidget {
+class _GridPhotoItem extends StatelessWidget {
   final OnLongWordPressCallback? onLongWordPress;
   final VoidCallback? onLongPressEnd;
   final Word word;
 
-  _GridDemoPhotoItem({
+  _GridPhotoItem({
     required Key key,
     required this.word,
     this.onLongWordPress,

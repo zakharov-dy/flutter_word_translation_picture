@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:word_translation_picture/blocs/checkbox_list/checkbox_list_cubit.dart';
 import 'package:word_translation_picture/blocs/words/words_bloc.dart';
 import 'package:word_translation_picture/blocs/words/words_events.dart';
 import 'package:word_translation_picture/models/Word.dart';
@@ -27,7 +28,8 @@ class GridWord extends StatelessWidget {
           child: const Text('Change picture'),
           value: ActionType.update,
         ),
-        PopupMenuItem<ActionType>(child: const Text('Delete'), value: ActionType.delete),
+        PopupMenuItem<ActionType>(
+            child: const Text('Delete'), value: ActionType.delete),
       ],
       onSelected: (type) => _onSelect(type!, context),
       icon: Icon(Icons.more_vert_outlined),
@@ -36,7 +38,9 @@ class GridWord extends StatelessWidget {
     final Widget image = Material(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
       clipBehavior: Clip.antiAlias,
-      child: Hero(tag: wordToImageTag(word), child: CachedNonExceptionImage(img: word.image)),
+      child: Hero(
+          tag: wordToImageTag(word),
+          child: CachedNonExceptionImage(img: word.image)),
     );
 
     return GridTile(
@@ -56,7 +60,18 @@ class GridWord extends StatelessWidget {
               child: _GridTitleText(word.ru),
               tag: wordToRuTag(word),
             ),
-            trailing: button,
+            trailing: BlocBuilder<CheckboxListCubit, CheckboxListState?>(
+                builder: (context, state) => state is CheckboxListDisabled
+                    ? button
+                    : Checkbox(
+                        activeColor: Colors.deepOrange,
+                        value: (state as CheckboxListEnabled)
+                            .values
+                            .contains(word.id!),
+                        onChanged: (bool? value) {
+                          BlocProvider.of<CheckboxListCubit>(context)
+                              .toggleCheckbox(word.id!);
+                        })),
           )),
       child: image,
     );
@@ -77,7 +92,8 @@ class GridWord extends StatelessWidget {
       ) as String?;
 
       if (image != null) {
-        BlocProvider.of<WordsBloc>(context).add(WordUpdatedEvent(word.copyWith(image: image)));
+        BlocProvider.of<WordsBloc>(context)
+            .add(WordUpdatedEvent(word.copyWith(image: image)));
       }
     } else if (type == ActionType.delete) {
       BlocProvider.of<WordsBloc>(context).add(WordDeletedEvent(word));
