@@ -59,8 +59,8 @@ The main application purpose is to have a dictionary with translation and pictur
 
 ## Builds
 
-Most likely you can not start my project, because that have some secret API keys, that I am not commited.  
-Fortunately I create build apk (android only) and share it by farebase distribution. I will share it for show how it work in real device. If you want to get it please contact me by dev.zakharov.dy@gmail.com.
+Most likely you can not start my project, because that have some secret API keys, that I have not commited.  
+Fortunately I created build apk (android only) and shared it by farebase distribution. I will share it for show how it work in real device. If you want to get it please contact me by dev.zakharov.dy@gmail.com.
 
 Unfortunitely I can't build application for iOS, because I can't register account and get error: "Your enrollment in the Apple Developer Program could not be completed at this time." on developer apple site. In emulator iOS application version works great.
 
