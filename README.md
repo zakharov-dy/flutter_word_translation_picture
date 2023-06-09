@@ -5,8 +5,6 @@
 It's my education project for understanding Flutter and BLOC flow.  
 The main application purpose is to have a dictionary with translation and picture. Application have quizlet-like animation and similar interfase. Thank you for visiting this page.
 
-![word > translation > picture](images/icon.png)
-
 ## Features
 
 - [x] Animated cards (quizlet-like);  
