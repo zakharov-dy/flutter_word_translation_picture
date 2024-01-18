@@ -1,5 +1,3 @@
-# word > translation > picture
-
 ## What is it?
 
 It's my education project for understanding Flutter and BLOC flow.  
